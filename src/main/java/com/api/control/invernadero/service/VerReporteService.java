@@ -12,7 +12,7 @@ public class VerReporteService {
     @Autowired
     private VerReporteRepository verReporteRepository;
 
-    public List<VerReporteDto> getAllVerreporte() {
+    public List<VerReporteDto> getAllVerReporte() {
         return verReporteRepository.findAllCustom();
     }
 }

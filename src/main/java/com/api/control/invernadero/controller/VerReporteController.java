@@ -4,8 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import com.api.control.invernadero.dto.VerReporteDto;
 import com.api.control.invernadero.service.VerReporteService;
@@ -18,8 +17,8 @@ public class VerReporteController {
     private VerReporteService verReporteService;
 
     @GetMapping
-    public ResponseEntity<List<VerReporteDto>> getAllVerreporte() {
-        List<VerReporteDto> VerReporteDtos = verReporteService.getAllVerreporte()
+    public ResponseEntity<List<VerReporteDto>> getAllVerReporte() {
+        List<VerReporteDto> VerReporteDtos = verReporteService.getAllVerReporte()
                 .stream()
                 .map(reporte -> new VerReporteDto(reporte.getId(), reporte.getFecha(), reporte.getHora(), reporte.getObservaciones()))
                 .collect(Collectors.toList());
